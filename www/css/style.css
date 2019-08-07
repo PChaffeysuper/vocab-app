@@ -1,0 +1,39 @@
+/* Empty. Add your own CSS if you like */
+*{
+    display: block;
+}
+body{
+    text-align: center;
+}
+#task{
+    
+    display: absolute;
+    align-self: auto;
+    text-align: center;
+    width: fill;
+    height: 200px;
+    background-color: rgb(229, 230, 231);
+    border-radius: 25px;
+    box-shadow: 5px 5px rgb(77, 76, 76); 
+
+    margin: 20px;
+}
+#title{
+    float: left;
+    margin: 10px;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+#description{
+    display: block;
+    margin-top: 25px;
+    margin-right: 20px;
+    font-size: 1.15rem;
+}
+#sentence{
+    float: bottom;
+    margin-top: 30px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="js/app.js"></script>
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="todo" ng-controller="TodoCtrl">
+    <ion-side-menus>
+
+<!-- Center content -->
+<ion-side-menu-content>
+  <ion-header-bar class="bar-dark">
+    <h1 class="title">Your Amazing Words</h1>
+    <!-- New Task button-->
+    <button class="button button-icon" ng-click="newTask()">
+      <i class="icon ion-compose"></i>
+    </button>
+  </ion-header-bar>
+  <ion-content>
+    <!-- our list and list items -->
+    <ion-card id="task" ng-repeat="task in tasks">
+      <ion-card-header>
+        <ion-card-title id="title">{{task.title}}</ion-card-title>
+      </ion-card-header>
+      <br />
+      <ion-card-content id="description">{{task.description}}</ion-card-content>
+      <br />
+      <ion-card-content id="sentence">{{task.sentence}}</ion-card-content>
+
+      <br />
+    </ion-card>
+  
+<script id="new-task.html" type="text/ng-template">
+
+  <div class="modal">
+
+    <!-- Modal header bar -->
+    <ion-header-bar class="bar-secondary">
+      <h1 class="title">New Task</h1>
+      <button class="button button-clear button-positive" ng-click="closeNewTask()">Cancel</button>
+    </ion-header-bar>
+
+    <!-- Modal content area -->
+    <ion-content>
+
+      <form ng-submit="createTask(task)">
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" placeholder="What is your word?" ng-model="task.title">
+          </label>
+        </div>
+          <label class="item item-input">
+          <input type="text" placeholder="Description" ng-model="task.description">
+          </label>
+          <label class="item item-input">
+              <input type="text" placeholder="Used in a sentence" ng-model="task.sentence">
+              </label>
+        <div class="padding">
+          <button type="submit" class="button button-block button-positive">Add Word</button>
+        </div>
+      </form>
+
+    </ion-content>
+
+  </div>
+
+</script>
+  
+    </ion-side-menus>
+
+  </body>
+</html>
